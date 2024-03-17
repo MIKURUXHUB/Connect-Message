@@ -112,6 +112,19 @@ app.get('/room/:myparams', (req, res) => {
   
 })
 
+app.get('/settingroom/:myparams', (req, res) => {
+  const invitecode = req.params.myparams
+
+  if (ConnectMessageJson.User[invitecode]) {
+    res.send({
+      ["Name"]:ConnectMessageJson.User[invitecode].Name,
+      ["Profile"]:ConnectMessageJson.User[invitecode].Profile,
+    })
+  } else {
+    res.send({})
+  }
+})
+
 app.post('/joinroom', (req, res) => {
   const body = req.body
   if (body.LicenseKey && body.Invitecode && body.Username && body.Userid) {
