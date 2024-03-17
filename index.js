@@ -94,9 +94,7 @@ app.get('/chat/:myparams', (req, res) => {
 
 app.get('/room/:myparams', (req, res) => {
   const LicenseKey = req.params.myparams
-
   const rooms = {}
-
   if (ConnectMessageJson.User[LicenseKey]) {
 
     for (let key in ConnectMessageJson.User[LicenseKey].Room) {
@@ -115,10 +113,10 @@ app.get('/room/:myparams', (req, res) => {
 app.get('/settingroom/:myparams', (req, res) => {
   const invitecode = req.params.myparams
 
-  if (ConnectMessageJson.User[invitecode]) {
+  if (ConnectMessageJson.Room[invitecode]) {
     res.send({
-      ["Name"]:ConnectMessageJson.User[invitecode].Name,
-      ["Profile"]:ConnectMessageJson.User[invitecode].Profile,
+      ["Name"]:ConnectMessageJson.Room[invitecode].Name,
+      ["Profile"]:ConnectMessageJson.Room[invitecode].Profile,
     })
   } else {
     res.send({})
