@@ -153,7 +153,7 @@ app.post('/createroom', (req, res) => {
             ["Username"] : body.Username,
             ["LicenseKey"] : body.LicenseKey,
           },
-          ["Name"]:body.Username,
+          ["Name"]:`${body.Username}'Room`,
           ["Index"]:0,
           ["Profile"]:body.Profile,
           ["Chat"]:{},
